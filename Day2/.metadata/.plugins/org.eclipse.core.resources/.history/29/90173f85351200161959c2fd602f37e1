@@ -1,0 +1,19 @@
+package heroes;
+
+public class Heroes {
+	
+	public int		health;
+	public String	heroType;
+	public int		level;
+	
+	public Heroes(int level){
+		heroType = "Knigth";
+		this.level = level;
+		if (heroType.compareTo("Orc") == 0){
+			this.health = 30;
+		}
+		if (heroType.compareTo("Knigth") == 0){
+			this.health = 25;
+		}
+	}
+}

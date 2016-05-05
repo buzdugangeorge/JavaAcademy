@@ -1,0 +1,27 @@
+package characters;
+
+import java.util.Scanner;
+
+public class Characters {
+	public String	playerName;
+	
+	public Characters(){
+		System.out.println("Enter the desired player name:");
+		this.playerName = readFromConsole();
+	}
+	
+	public String toString() {
+		return this.playerName;
+	}
+	
+	public String readFromConsole(){
+		
+		String strReturn;
+		Scanner scanIn = new Scanner(System.in);
+		
+		strReturn = scanIn.nextLine();
+		scanIn.close();
+		return strReturn;
+		}
+}
+

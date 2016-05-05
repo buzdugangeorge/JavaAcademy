@@ -1,0 +1,81 @@
+package heroes;
+
+import java.util.Scanner;
+
+public class Heroes {
+	
+	public int		health;
+	public String	heroType;
+	public int		level;
+	public int		atack;
+	public int		range;
+	
+	public Heroes(int level, String heroType){
+		
+		System.out.println("Please select your Hero: Orc, Elf, Knight, Mage");
+		this.heroType = heroType;
+		System.out.println("You have selected the " + heroType + " class!");
+		this.level = level;
+		System.out.println("Your current level is: " + level);
+		this.health = calculateHealth(level, heroType);
+		System.out.println("Your current health is: " + this.health);
+		this.atack = calculateAtack(level, heroType);
+		System.out.println("Your current atack power is: " + this.atack);
+		this.range = calculateRange(heroType);
+		System.out.println("Your heroes range is: " + range);
+	}
+	
+	public int	calculateHealth(int level, String heroType){
+		int		result;
+		
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = (level * 5) + 40;
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = (level * 4) + 35;
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = (level * 3) + 30;
+		else
+			result = (level * 3) + 25;
+		
+		return result;
+	}
+	
+	public int	calculateAtack(int level, String heroType){
+		
+		int		result;
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = (level * 3) + 30;
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = (level * 3) + 30;
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = (level * 4) + 35;
+		else
+			result = (level * 4) + 40;
+		
+		return result;
+	}
+	
+	public int	calculateRange(String heroType){
+		int		result;
+		
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = 1;
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = 1;
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = 4;
+		else
+			result = 5;
+		return result;
+	}
+	
+	public String readFromConsole(){
+		
+		String strReturn;
+		Scanner scanIn = new Scanner(System.in);
+		
+		strReturn = scanIn.nextLine();
+		scanIn.close();
+		return strReturn;
+		}
+}

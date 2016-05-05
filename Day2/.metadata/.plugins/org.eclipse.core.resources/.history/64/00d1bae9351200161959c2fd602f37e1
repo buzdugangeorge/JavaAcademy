@@ -1,0 +1,37 @@
+package heroes;
+
+import java.util.Scanner;
+
+public class Heroes {
+	
+	public int		health;
+	public String	heroType;
+	public int		level;
+	
+	public Heroes(int level){
+		
+		System.out.println("Please select your Hero: Orc, Elf, Knight, Mage");
+		this.heroType = "Orc";
+		this.level = level;
+		if (this.heroType.compareToIgnoreCase("orc") == 0){
+			this.health = 30;
+		}
+		if (this.heroType.compareTo("Knigth") == 0){
+			this.health = 25;
+		}
+		else{
+			System.out.println("Error: Unknown Hero");
+			System.exit(-1);
+		}
+	}
+	
+	public String readFromConsole(){
+		
+		String strReturn;
+		Scanner scanIn = new Scanner(System.in);
+		
+		strReturn = scanIn.nextLine();
+		scanIn.close();
+		return strReturn;
+		}
+}

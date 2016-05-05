@@ -1,0 +1,58 @@
+package game;
+
+import characters.Characters;
+import artifacts.Artifacts;
+import heroes.Heroes;
+import villains.Villain;
+
+public class Game{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int		level = 3;
+		Heroes	aux;
+		
+		Characters newCharacter = new Characters(level, "Orc"); // Character(int level, String heroType);
+		Artifacts newArtifact = new Artifacts(level);
+		aux = newCharacter.newHero.calculateStatsWithArtifact(level, newCharacter.newHero, newArtifact);
+		if (aux.equals(newCharacter.newHero) && newCharacter.newHero.level <= newArtifact.requiredLevel){
+			System.out.println("You do not have the required level to equip this artifact !");
+			System.out.println("Stats remain unchanged");
+		}
+		else if (aux.equals(newCharacter.newHero) == true){
+			System.out.println("Your hero is unfit to equip this item type " + newArtifact.artifactName + " !");
+			System.out.println("Stats reamin unchanged");
+		}
+		else {
+			System.out.println("Item " + newArtifact.artifactName + "was successful.");
+			System.out.println("New Stats");
+			System.out.println("Your current level is: " + level);
+			System.out.println("Your current health is: " + aux.health);
+			System.out.println("Your current atack power is: " + aux.atack);
+			System.out.println("Your heroes defense is : " + aux.defense);
+		}
+		
+	}
+	
+	int		healthAfterFith(Heroes newHero, Villain newVillain){
+		int		resultHealth;
+		int		villianHealth;
+		
+		return 0;
+		
+	}
+	
+	public Heroes calculateStatsWithArtifact(float level, Heroes newHero, Artifacts newArtifact){
+		if (newArtifact.itemType == 0 || newArtifact.itemType == 1){
+			newHero.health = newHero.health + newArtifact.health;
+			newHero.defense = newHero.defense + newArtifact.defense;
+		}
+		else if (newArtifact.itemType == 2 && newHero.heroType.compareToIgnoreCase("Orc") == 0 ||
+		newArtifact.itemType == 3 && newHero.heroType.compareToIgnoreCase("Knigth") == 0 ||
+		newArtifact.itemType == 4 && newHero.heroType.compareToIgnoreCase("Elf") == 0 ||
+		newArtifact.itemType == 5 && newHero.heroType.compareToIgnoreCase("Mage") == 0){
+			newHero.atack = newHero.atack + newArtifact.atack;
+		}
+		return newHero;
+	}
+}

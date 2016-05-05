@@ -1,0 +1,18 @@
+package heroes;
+
+import characters.Characters;
+
+public class Heroes extends Characters{
+	
+	public int		health;
+	public String	heroType;
+	public int		level;
+	
+	public Heroes(int level){
+		heroType = "Orc";
+		if (heroType.compareTo("Orc") == 0){
+			this.health = 30;
+			this.level = level;
+		}
+	}
+}

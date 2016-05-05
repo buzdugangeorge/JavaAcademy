@@ -1,0 +1,44 @@
+package characters;
+
+import java.util.Scanner;
+
+public class Characters {
+	public String	playerName;
+	
+	public Characters(){
+		String check = "Yes";
+		
+		System.out.println("Enter the desired player name:");
+		this.playerName = readFromConsole();
+		System.out.println(this.toString());
+		while (check.compareToIgnoreCase("No") != 0){
+			System.out.println("Do you wish to change the player name:");
+			System.out.println("Yes or No :");
+			check = readFromConsole();
+			if (check.compareToIgnoreCase("Yes") == 0){
+				System.out.println("Enter the desired player name:");
+				this.playerName = readFromConsole();
+				this.toString();
+			}
+			else if (check.compareToIgnoreCase("No") == 0)
+				break ;
+			else
+				System.out.println("Error : Unknown command");
+		}
+	}
+	
+	public String toString() {
+		return "Your player name is : " + this.playerName;
+	}
+	
+	public String readFromConsole(){
+		
+		String strReturn;
+		Scanner scanIn = new Scanner(System.in);
+		
+		strReturn = scanIn.nextLine();
+		scanIn.close();
+		return strReturn;
+		}
+}
+

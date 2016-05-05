@@ -1,0 +1,14 @@
+package characters;
+
+public class Characters {
+	public String	playerName;
+	
+	public Characters(String playerName){
+		this.playerName = playerName;
+	}
+	
+	public String toString() {
+		return this.playerName;
+	}
+}
+

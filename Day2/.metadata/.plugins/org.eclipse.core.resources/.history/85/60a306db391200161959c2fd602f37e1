@@ -1,0 +1,43 @@
+package heroes;
+
+import java.util.Scanner;
+
+public class Heroes {
+	
+	public int		health;
+	public String	heroType;
+	public int		level;
+	
+	public Heroes(int level, String heroType){
+		
+		System.out.println("Please select your Hero: Orc, Elf, Knight, Mage");
+		this.heroType = heroType;
+		this.level = level;
+		this.health = calculateHealth(level, heroType);
+	}
+	
+	public int	calculateHealth(int level, String heroType){
+		int		result;
+		
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = (level * 5) + 40;
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = (level * 4) + 35;
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = (level * 3) + 30;
+		else
+			result = (level * 3) + 25;
+		
+		return result;
+	}
+	
+	public String readFromConsole(){
+		
+		String strReturn;
+		Scanner scanIn = new Scanner(System.in);
+		
+		strReturn = scanIn.nextLine();
+		scanIn.close();
+		return strReturn;
+		}
+}

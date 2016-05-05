@@ -1,0 +1,10 @@
+import characters.Characters;
+
+public class Game{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Characters newCharacter = new Characters();
+		System.out.println(newCharacter.playerName);
+	}
+}

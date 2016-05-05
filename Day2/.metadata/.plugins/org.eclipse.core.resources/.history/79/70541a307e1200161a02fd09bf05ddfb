@@ -1,0 +1,32 @@
+package villains;
+
+public class villains {
+	public int health;
+	public int		villainNumber;
+	public float	level;
+	public int		atack;
+	public int		range;
+	public int		agility;
+	public float	defense;
+	public Villain(float level, String heroType){
+		
+		System.out.println("Please select your Hero: Orc, Elf, Knight, Mage");
+		this.heroType = heroType;
+		System.out.println("You have selected the " + heroType + " class!");
+		this.level = level;
+		System.out.println("Your current level is: " + level);
+		this.health = calculateHealth(level, heroType);
+		System.out.println("Your current health is: " + this.health);
+		this.atack = calculateAtack(level, heroType);
+		System.out.println("Your current atack power is: " + this.atack);
+		this.range = calculateRange(heroType);
+		System.out.println("Your heroes range is: " + this.range);
+		this.agility = calculateAgility(level, heroType);
+		System.out.println("Your heroes agility is : " + this.agility);
+		this.defense = calculateDefense(level, heroType);
+		System.out.println("Your heroes defense is : " + this.defense);
+	}
+	
+}
+
+

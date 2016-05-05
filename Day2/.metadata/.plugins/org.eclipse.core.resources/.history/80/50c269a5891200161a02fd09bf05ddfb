@@ -1,0 +1,40 @@
+package game;
+
+import characters.Characters;
+import artifacts.Artifacts;
+import heroes.Heroes;
+
+public class Game{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int		level = 3;
+		Heroes	aux;
+		
+		Characters newCharacter = new Characters(level, "Orc"); // Character(int level, String heroType);
+		Artifacts newArtifact = new Artifacts(level);
+		aux = newCharacter.newHero.calculateStatsWithArtifact(level, newCharacter.newHero, newArtifact);
+		System.out.println(aux.atack);
+		System.out.println(aux.heroType);
+		System.out.println(aux.health);
+		System.out.println(aux.defense);
+		System.out.println(aux.range);
+	}
+	
+	public Heroes calculateStatsWithArtifact(float level, Heroes newHero, Artifacts newArtifact){
+		if (newArtifact.itemType == 0 || newArtifact.itemType == 1){
+			newHero.health = newHero.health + newArtifact.health;
+			newHero.defense = newHero.defense + newArtifact.defense;
+		}
+		else if (newArtifact.itemType == 2 && newHero.heroType.compareToIgnoreCase("Orc") == 0 ||
+		newArtifact.itemType == 3 && newHero.heroType.compareToIgnoreCase("Knigth") == 0 ||
+		newArtifact.itemType == 4 && newHero.heroType.compareToIgnoreCase("Elf") == 0 ||
+		newArtifact.itemType == 5 && newHero.heroType.compareToIgnoreCase("Mage") == 0){
+			newHero.atack = newHero.atack + newArtifact.atack;
+		}
+		else {
+			return null;
+		}
+		return newHero;
+	}
+}

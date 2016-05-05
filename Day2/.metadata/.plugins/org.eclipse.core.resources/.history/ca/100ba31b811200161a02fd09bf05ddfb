@@ -1,0 +1,11 @@
+package characters;
+
+import characters.Characters;
+
+public class Game{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Characters newCharacter = new Characters(2, "Orc"); // Character(int level, String heroType);
+	}
+}

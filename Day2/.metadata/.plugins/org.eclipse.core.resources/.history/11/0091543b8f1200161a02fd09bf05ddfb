@@ -1,0 +1,108 @@
+package heroes;
+
+import artifacts.Artifacts;
+
+public class Heroes {
+	
+	public int		health;
+	public String	heroType;
+	public float	level;
+	public int		atack;
+	public int		range;
+	public float	defense;
+	
+	public Heroes(float level, String heroType){
+		
+		System.out.println("Please select your Hero: Orc, Elf, Knight, Mage");
+		this.heroType = heroType;
+		System.out.println("You have selected the " + heroType + " class!");
+		this.level = level;
+		System.out.println("Your current level is: " + level);
+		this.health = calculateHealth(level, heroType);
+		System.out.println("Your current health is: " + this.health);
+		this.atack = calculateAtack(level, heroType);
+		System.out.println("Your current atack power is: " + this.atack);
+		this.range = calculateRange(heroType);
+		System.out.println("Your heroes range is: " + this.range);
+		this.agility = calculateAgility(level, heroType);
+		this.defense = calculateDefense(level, heroType);
+		System.out.println("Your heroes defense is : " + this.defense);
+	}
+	
+	public Heroes calculateStatsWithArtifact(float level, Heroes newHero, Artifacts newArtifact){
+		if (newArtifact.itemType == 0 || newArtifact.itemType == 1){
+			newHero.health = newHero.health + newArtifact.health;
+			newHero.defense = newHero.defense + newArtifact.defense;
+		}
+		else if (newArtifact.itemType == 2 && newHero.heroType.compareToIgnoreCase("Orc") == 0 ||
+		newArtifact.itemType == 3 && newHero.heroType.compareToIgnoreCase("Knigth") == 0 ||
+		newArtifact.itemType == 4 && newHero.heroType.compareToIgnoreCase("Elf") == 0 ||
+		newArtifact.itemType == 5 && newHero.heroType.compareToIgnoreCase("Mage") == 0){
+			newHero.atack = newHero.atack + newArtifact.atack;
+		}
+		return newHero;
+	}
+	
+/*	public boolean equals(Heroes newHero){
+		if ()
+	}*/
+	
+	public float calculateDefense(float level, String heroType){
+		float		result;
+		
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = (level * 4) + 50;
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = (float) ((level * 3.5) + 45);
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = (level * 3) + 45;
+		else
+			result = (level * 3) + 45;
+		
+		return result;
+	}
+	
+	public int	calculateHealth(float level, String heroType){
+		int		result;
+		
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = (int) ((level * 5) + 40);
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = (int) ((level * 4) + 35);
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = (int) ((level * 3) + 30);
+		else
+			result = (int) ((level * 3) + 25);
+		
+		return result;
+	}
+	
+	public int	calculateAtack(float level, String heroType){
+		
+		int		result;
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = (int) ((level * 3) + 30);
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = (int) ((level * 3) + 30);
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = (int) ((level * 4) + 35);
+		else
+			result = (int) ((level * 4) + 40);
+		
+		return result;
+	}
+	
+	public int	calculateRange(String heroType){
+		int		result;
+		
+		if (heroType.compareToIgnoreCase("orc") == 0)
+			result = 1;
+		else if (heroType.compareToIgnoreCase("knigth") == 0)
+			result = 1;
+		else if (heroType.compareToIgnoreCase("elf") == 0)
+			result = 4;
+		else
+			result = 5;
+		return result;
+	}
+}

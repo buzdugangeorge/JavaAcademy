@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="heroes.Heroes.Orc"/>
+<fullyQualifiedTypeName name="characters.Characters"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="artifacts.Artifacts"/>
+<fullyQualifiedTypeName name="heroes.Heroes"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="villains.Villain"/>
+</qualifiedTypeNameHistroy>

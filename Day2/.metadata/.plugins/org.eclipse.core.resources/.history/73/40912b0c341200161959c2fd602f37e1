@@ -1,0 +1,32 @@
+package characters;
+
+import java.util.Scanner;
+import heroes.Heroes;
+
+public class Characters {
+	public String	playerName;
+	//public Heroes	newHero = new Heroes(4);
+	
+	public Characters(){
+		
+		System.out.println("Enter the desired player name:");
+		this.playerName = readFromConsole();
+		System.out.println(this.toString());
+	//	System.out.println(this.newHero.level);
+	}
+	
+	public String toString() {
+		return "Your player name is : " + this.playerName;
+	}
+	
+	public String readFromConsole(){
+		
+		String strReturn;
+		Scanner scanIn = new Scanner(System.in);
+		
+		strReturn = scanIn.nextLine();
+		scanIn.close();
+		return strReturn;
+		}
+}
+

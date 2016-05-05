@@ -1,0 +1,61 @@
+package villains;
+
+import java.util.Random;
+
+public class Villain {
+	public int 		health;
+	public int		villainNumber;
+	public String	villainName;
+	public float	level;
+	public int		atack;
+	public int		range;
+	public int		agility;
+	public float	defense;
+	
+	public Villain(float level){
+		
+	    Random rand = new Random();
+	    
+	    this.level = level;
+	    this.villainNumber = rand.nextInt(3);
+	    
+	    if (villainNumber == 0){
+	    	this.villainName = "Devil";
+	    	this.health = (int)((level * 3) + 20);
+	    	this.atack = (int)(level + 5);
+	    	this.range = 1;
+	    	this.agility = (int)(level);
+	    	this.defense = (int)((level * 1.25) + 25);
+	    }
+	    else if (villainNumber == 1){
+	    	this.villainName = "Goblin";
+	    	this.health = (int)((level * 3) + 15);
+	    	this.atack = (int)(level + 6);
+	    	this.range = 1;
+	    	this.agility = (int)(level);
+	    	this.defense = (int)((level * 1.25) + 27);
+	    }
+	    else if (villainNumber == 2){
+	    	this.villainName = "Necromancer";
+	    	this.health = (int)((level * 3) + 10);
+	    	this.atack = (int)(level + 10);
+	    	this.range = 3;
+	    	this.agility = (int)(level);
+	    	this.defense = (int)((level * 1.25) + 20);
+	    }
+	    else {
+	    	this.villainName = "Dark Mage";
+	    	this.health = (int)((level * 3) + 15);
+	    	this.atack = (int)(level + 10);
+	    	this.range = 3;
+	    	this.agility = (int)(level);
+	    	this.defense = (int)((level * 1.25) + 20);
+	    }
+		System.out.println("Your current level is: " + level);
+		System.out.println("Your current health is: " + this.health);
+		System.out.println("Your current atack power is: " + this.atack);
+		System.out.println("Your heroes range is: " + this.range);
+		System.out.println("Your heroes agility is : " + this.agility);
+		System.out.println("Your heroes defense is : " + this.defense);
+	}
+}
